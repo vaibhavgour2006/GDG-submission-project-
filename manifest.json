@@ -1,0 +1,22 @@
+{
+  "short_name": "CampusQuest",
+  "name": "Campus Quest: The GDG Application Key",
+  "description": "GPS-based campus adventure game for IET DAVV students to unlock the GDG key.",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0a0f1d",
+  "theme_color": "#0a0f1d",
+  "display": "standalone",
+  "orientation": "portrait"
+}

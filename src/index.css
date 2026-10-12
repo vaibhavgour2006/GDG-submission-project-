@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Leaflet dark theme tweaks */
+.leaflet-container {
+  background-color: #030712 !important;
+  font-family: inherit !important;
+  height: 100% !important;
+  width: 100% !important;
+  min-height: 280px !important;
+  z-index: 0 !important;
+}
+
+.leaflet-tile {
+  /* Native CARTO Dark Matter tiles render crisp dark theme */
+  border: none !important;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #0f172a !important;
+  color: #38bdf8 !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #1e293b !important;
+  color: #fff !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Smooth map container fade-in */
+@keyframes mapContainerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-map-fade-in {
+  animation: mapContainerFadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle pulsating beacon animations for active checkpoint markers */
+@keyframes markerBeaconPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.85;
+  }
+  60% {
+    transform: scale(1.8);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes markerSubtleBreath {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 14px rgba(6, 182, 212, 0.4), 0 0 28px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.75), 0 0 45px rgba(6, 182, 212, 0.35);
+  }
+}
+
+@keyframes geofenceDashMove {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.active-marker-beacon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+  margin-left: -28px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.6) 0%, rgba(6, 182, 212, 0.18) 50%, rgba(6, 182, 212, 0) 75%);
+  animation: markerBeaconPulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.active-marker-beacon-delayed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+  margin-left: -28px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(56, 189, 248, 0.15) 50%, rgba(56, 189, 248, 0) 75%);
+  animation: markerBeaconPulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite 1.2s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.active-marker-pulse {
+  animation: markerSubtleBreath 2.2s ease-in-out infinite;
+}
+
+.custom-checkpoint-marker {
+  overflow: visible !important;
+}
+
+/* Focus bounce animation when user clicks a task or navigates to a marker */
+@keyframes markerFocusBounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-16px) scale(1.22);
+    filter: drop-shadow(0 14px 22px rgba(6, 182, 212, 0.95));
+  }
+  50% {
+    transform: translateY(-4px) scale(1.08);
+  }
+  75% {
+    transform: translateY(-10px) scale(1.15);
+    filter: drop-shadow(0 8px 16px rgba(6, 182, 212, 0.7));
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: none;
+  }
+}
+
+.marker-focus-bounce {
+  animation: markerFocusBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1);
+  z-index: 9999 !important;
+}

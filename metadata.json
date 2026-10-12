@@ -1,0 +1,6 @@
+{
+  "name": "Campus Quest: The GDG Application Key",
+  "description": "A GPS-based, story-driven campus adventure web game for first-year students at IET DAVV. Discover checkpoints, solve puzzles, collect code fragments, and unlock the GDG application.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
