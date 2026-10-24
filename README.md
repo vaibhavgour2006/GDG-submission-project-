@@ -20,6 +20,8 @@ Built for orientation, induction, and recruitment for **Google Developer Groups 
 - **Timeout Breaks & "Arre tum fir aa gaye?!" Comebacks**: Failing on timeout locks the character on a 10-second chai/class break with disabled map markers and unique witty comeback dialogue upon return.
 - **Confetti & Procedural Audio**: Native Web Audio API synthesizer for retro Game Boy style sound effects and `canvas-confetti` celebrations.
 
+- Quick play link https://ai.studio/apps/5541714b-abf2-41da-9946-506fda53a821
+
 ---
 
 ## 2. System Architecture & Tech Stack
